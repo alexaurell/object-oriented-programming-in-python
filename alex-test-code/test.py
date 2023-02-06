@@ -1,15 +1,20 @@
-class Person:
-    def set_details(self, name, age):
-        self.name = name
-        self.age = age
+class Product:
+    def __init__(self, x, y):
+        self._x = x
+        self._y = y
 
     def display(self):
-        print('I am', self.name)
-    
-    def greet(self):
-        print('Hello, how are you doing?', self)
+        print(self._x, self._y)
 
-p1 = Person()
+    @property
+    def value(self):
+        return self._x
 
-p1.set_details('Tom', 8)
-p1.display()
+    @value.setter
+    def value(self, val):
+        self._x = val
+
+p = Product(12, 24)
+print(p.value)
+p.value = 100
+print(p.value)
